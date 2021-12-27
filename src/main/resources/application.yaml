@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.99.100:3306/library?createDatabaseIfNotExist=true
+    username: root
+    password: root
+
+
+  liquibase:
+    enabled: true
+#    change-log: classpath:/db/changelog/db.changelog-master.yaml
+

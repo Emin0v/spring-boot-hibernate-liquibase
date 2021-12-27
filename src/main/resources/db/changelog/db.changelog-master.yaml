@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/create-author-table-changelog-1.yaml
+  - include:
+      file: db/changelog/changes/create-book-table-changelog-1.yaml
+
