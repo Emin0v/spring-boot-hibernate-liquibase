@@ -25,7 +25,10 @@ public class Author {
 
     private String username;
 
+    private String password;
+
     @OneToMany(mappedBy = "author")
     private List<Book> bookList;
+
 
 }

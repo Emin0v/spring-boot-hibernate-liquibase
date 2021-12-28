@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.IntStream;
@@ -20,6 +22,8 @@ public class DemoData {
     private final BookService bookService;
     private final AuthorService authorService;
 
+    private final PasswordEncoder encoder;
+
     @EventListener(ApplicationReadyEvent.class)
     public void migrate(){
         Long countOfData = authorService.countAuthor();
@@ -31,6 +35,7 @@ public class DemoData {
                         AuthorDto.builder()
                                 .name("Author"+item)
                                 .username("author."+item)
+                                .password(encoder.encode("12345678"))
                                 .build()
                 );
 
